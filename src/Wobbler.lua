@@ -166,3 +166,5 @@ function Wobbler:step(_state, _dt)
 		velocity = v1,
 	}
 end
+
+return Wobbler
