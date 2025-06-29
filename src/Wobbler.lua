@@ -152,13 +152,11 @@ function Wobbler:init(state)
 	self._spring.Position = state.initValue
 	self._spring.Target = state.initValue
 	self._initValue = state.initValue
-	warn(state, " INIT")
 
 	self._spring:Impulse(self._implulse)
 end
 
 function Wobbler:step(state, _dt)
-	warn("STEP " , state)
 	local target, v1, p1 = self._spring.Target, self._spring.Velocity, self._spring.Position
 
 	local complete = math.abs(v1) < VELOCITY_THRESHOLD and math.abs(p1 - target) < POSITION_THRESHOLD
