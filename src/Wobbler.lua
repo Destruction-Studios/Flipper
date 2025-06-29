@@ -138,9 +138,9 @@ Wobbler.__index = Wobbler
 function Wobbler.new(impulse:number, options: WobblerOptions?)
     options = options or {}
 	local spring = Spring.new(0)
-	spring.Damper = options.Damper or .5
-	spring.Speed = options.Speed or 3
-	spring.Velocity = options.Velocity or 1
+	spring.Damper = options.damper or .5
+	spring.Speed = options.speed or 3
+	spring.Velocity = options.velocity or 1
 
 	return setmetatable({
 		_spring = spring,
@@ -148,7 +148,7 @@ function Wobbler.new(impulse:number, options: WobblerOptions?)
 	}, Wobbler)
 end
 
-function Wobbler:Init(state)
+function Wobbler:init(state)
 	self._spring.Position = state.value
 	self._spring.Target = state.initValue
 
