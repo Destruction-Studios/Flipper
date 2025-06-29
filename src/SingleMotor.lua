@@ -33,6 +33,7 @@ function SingleMotor.new(initialValue: number, useImplicitConnections: boolean)
 
 	self._goal = nil
 	self._state = {
+		initValue = initialValue,
 		complete = true,
 		value = initialValue,
 	}
@@ -86,11 +87,12 @@ function SingleMotor:setGoal(goal)
 	self._state.complete = false
 	self._goal = goal
 
-	if goal.ClassName ~= "Wobbler" then
-		self._initValue = goal._targetValue
-		self._state.initValue = goal._targetValue
-	end
+	-- if goal.ClassName ~= "Wobbler" then
+	-- 	self._initValue = goal._targetValue
+	-- 	self._state.initValue = goal._targetValue
+	-- end
 	if typeof(goal.init) == "function" then
+		warn(self._state)
 		goal:init(self._state)
 	end
 
