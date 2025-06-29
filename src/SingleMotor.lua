@@ -92,7 +92,6 @@ function SingleMotor:setGoal(goal)
 	-- 	self._state.initValue = goal._targetValue
 	-- end
 	if typeof(goal.init) == "function" then
-		warn(self._state)
 		goal:init(self._state)
 	end
 
