@@ -33,7 +33,7 @@ function Tween.new(targetValue: number, tweenInfo: TweenInfo?)
 	return setmetatable(tweenProperties, Tween)
 end
 
-function Tween:Step(state, delta)
+function Tween:step(state, delta)
 	local tween = self._Tween
 	local tweenObject = self._TweenObject
 	local playbackState = tween.PlaybackState
