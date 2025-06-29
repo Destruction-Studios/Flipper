@@ -149,6 +149,7 @@ function Wobbler.new(impulse: number, options: WobblerOptions?)
 end
 
 function Wobbler:init(state)
+	self._initValue = state.initValue
 	self._spring.Position = state.initValue
 	self._spring.Target = state.initValue
 	self._initValue = state.initValue
@@ -165,6 +166,7 @@ function Wobbler:step(_state, _dt)
 		complete = complete,
 		value = complete and target or p1,
 		velocity = v1,
+		initValue = self._initValue,
 	}
 end
 
