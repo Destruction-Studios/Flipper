@@ -1,8 +1,8 @@
 [package]
-name = "alreadypro/flipper"
-description = "A motion library for Roblox forked to add support for Tweens"
+name = "destruction-studios/flipper"
+description = "A motion library for Roact"
 license = "MIT"
-authors = ["AlreadyPro"]
+authors = ["AlreadyPro", "Destruction Studios"]
 version = "2.0.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"

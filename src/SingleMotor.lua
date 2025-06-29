@@ -84,6 +84,10 @@ function SingleMotor:setGoal(goal)
 	self._state.complete = false
 	self._goal = goal
 
+	if typeof(goal.Init) == "function" then
+		goal:Init(self._state)
+	end
+
 	self._onStart:fire()
 
 	if self._useImplicitConnections then
