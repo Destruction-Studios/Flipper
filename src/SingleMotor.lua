@@ -88,11 +88,12 @@ function SingleMotor:setGoal(goal)
 	self._state.complete = false
 	self._goal = goal
 
+	if goal.ClassName ~= "Wobbler" then
+		self._initValue = goal._targetValue
+		self._state.initValue = goal._targetValue
+	end
 	if typeof(goal.init) == "function" then
 		goal:init(self._state)
-	end
-	if goal.ClassName ~= "Wobbler" then
-		self._state.initValue = goal._targetValue
 	end
 
 	self._onStart:fire()
