@@ -14,6 +14,7 @@ Instant.__index = Instant
 ]=]
 function Instant.new(targetValue: number)
 	return setmetatable({
+		_initValue = targetValue,
 		_targetValue = targetValue,
 	}, Instant)
 end
@@ -24,6 +25,7 @@ end
 function Instant:step()
 	return {
 		complete = true,
+		initValue = self._initValue,
 		value = self._targetValue,
 	}
 end

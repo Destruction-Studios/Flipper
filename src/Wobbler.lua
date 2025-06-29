@@ -135,7 +135,7 @@ local Wobbler = {}
 Wobbler.ClassName = "ImpulseSpring"
 Wobbler.__index = Wobbler
 
-function Wobbler.new(impulse:number, options: WobblerOptions?)
+function Wobbler.new(impulse: number, options: WobblerOptions?)
     options = options or {}
 	local spring = Spring.new(0)
 	spring.Damper = options.damper or .5
@@ -149,8 +149,9 @@ function Wobbler.new(impulse:number, options: WobblerOptions?)
 end
 
 function Wobbler:init(state)
-	self._spring.Position = state.value
+	self._spring.Position = state.initValue
 	self._spring.Target = state.initValue
+	self._initValue = state.initValue
 
 	self._spring:Impulse(self._implulse)
 end

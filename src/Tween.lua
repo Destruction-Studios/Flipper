@@ -23,6 +23,7 @@ function Tween.new(targetValue: number, tweenInfo: TweenInfo?)
 	local tweenObject = Instance.new("NumberValue")
 
 	local tweenProperties: TweenProperties = {
+		_initValue = targetValue,
 		_TweenObject = tweenObject;
 		_Tween = TweenService:Create(tweenObject, tweenInfo or TWEEN_DEFAULT, {Value = targetValue});
 
@@ -64,6 +65,7 @@ function Tween:step(state, delta)
 	tween:Pause()
 
 	return {
+		initValue = self._initValue,
 		complete = playbackState == TWEEN_COMPLETED;
 		value = tweenObject.Value;
 	}

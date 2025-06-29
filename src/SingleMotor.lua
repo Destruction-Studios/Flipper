@@ -35,7 +35,6 @@ function SingleMotor.new(initialValue: number, useImplicitConnections: boolean)
 	self._state = {
 		complete = true,
 		value = initialValue,
-		initValue = self._initValue,
 	}
 
 	return self
@@ -53,7 +52,6 @@ function SingleMotor:step(deltaTime)
 	end
 
 	local newState = self._goal:step(self._state, deltaTime)
-	newState.initValue = self._initValue
 	
 	self._state = newState
 	self._onStep:fire(newState.value)
