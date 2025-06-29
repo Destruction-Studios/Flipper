@@ -150,7 +150,7 @@ end
 
 function Wobbler:Init(state)
 	self._spring.Position = state.value
-	self._spring.Target = state.value
+	self._spring.Target = state.initValue
 
 	self._spring:Impulse(self._implulse)
 end

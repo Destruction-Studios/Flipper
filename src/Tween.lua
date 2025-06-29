@@ -13,7 +13,7 @@ export type TweenProperties = {
 	_TweenObject: NumberValue?,
 	_Tween: Tween?,
 
-	_TargetValue: number,
+	_targetValue: number,
 	_InitialValue: number | boolean,
 }
 
@@ -26,7 +26,7 @@ function Tween.new(targetValue: number, tweenInfo: TweenInfo?)
 		_TweenObject = tweenObject;
 		_Tween = TweenService:Create(tweenObject, tweenInfo or TWEEN_DEFAULT, {Value = targetValue});
 
-		_TargetValue = targetValue;
+		_targetValue = targetValue;
 		_InitialValue = false;
 	}
 
@@ -55,7 +55,7 @@ function Tween:step(state, delta)
 
 		self._TweenObject = nil
 		self._Tween = nil
-		self._TargetValue = nil
+		self._targetValue = nil
 		self._InitialValue = nil
 	end
 
